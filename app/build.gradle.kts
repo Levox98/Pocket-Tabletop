@@ -5,15 +5,15 @@ plugins {
 
 @Suppress("UnstableApiUsage")
 android {
-    namespace = "com.levox.pocket_tabletop"
-    compileSdk = 33
+    namespace = Config.namespace
+    compileSdk = Config.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.levox.pocket_tabletop"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.applicationId
+        minSdk = Config.minSdkVersion
+        targetSdk = Config.targetSdkVersion
+        versionCode = Config.versionCode
+        versionName = Config.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -38,7 +38,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = Dependencies.Compose.compose_compiler_version
     }
     packagingOptions {
         resources {
@@ -49,16 +49,22 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
-    implementation("androidx.compose.ui:ui:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
-    implementation("androidx.compose.material:material:1.2.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.2.1")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.2.1")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.1")
+    implementation(platform(Dependencies.Compose.bom))
+
+    implementation(Dependencies.Core.coreKtx)
+    implementation(Dependencies.Lifecycle.runtime)
+    implementation(Dependencies.Android.activityCompose)
+
+    implementation(Dependencies.Compose.ui)
+    implementation(Dependencies.Compose.uiToolingPreview)
+    implementation(Dependencies.Compose.material)
+    androidTestImplementation(Dependencies.Compose.uiTestJUnit)
+
+
+    testImplementation(Dependencies.Test.jUnit)
+    androidTestImplementation(Dependencies.Test.jUnitAssertions)
+    androidTestImplementation(Dependencies.Test.espresso)
+
+    debugImplementation(Dependencies.Compose.debugUiTooling)
+    debugImplementation(Dependencies.Compose.debugUiTestManifest)
 }
