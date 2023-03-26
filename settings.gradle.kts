@@ -25,5 +25,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Pocket Tabletop"
 include (":app")
