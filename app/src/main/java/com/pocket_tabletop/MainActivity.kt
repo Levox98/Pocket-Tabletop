@@ -1,4 +1,4 @@
-package com.levox.pocket_tabletop
+package com.pocket_tabletop
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.levox.pocket_tabletop.ui.theme.PocketTabletopTheme
+import com.pocket_tabletop.theme.PocketTabletopTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
