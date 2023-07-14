@@ -37,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
+
     implementation(Dependencies.Core.coreKtx)
 
     kapt(Dependencies.Hilt.kapt)

@@ -32,3 +32,4 @@ dependencyResolutionManagement {
 rootProject.name = "Pocket Tabletop"
 include (":app")
 include(":core-network")
+include(":core")
