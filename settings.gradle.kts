@@ -13,6 +13,9 @@ pluginManagement {
             if (requested.id.id.startsWith("org.jetbrains.kotlin")) {
                 useVersion("1.8.10")
             }
+            if(requested.id.id.startsWith("com.google.dagger")) {
+                useVersion("2.47")
+            }
         }
     }
 }
