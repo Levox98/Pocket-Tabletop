@@ -41,4 +41,11 @@ dependencies {
 
     kapt(Dependencies.Hilt.kapt)
     implementation(Dependencies.Hilt.hilt)
+
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.gsonConverter)
+
+    implementation(platform(Dependencies.OkHttp.bom))
+    implementation(Dependencies.OkHttp.okHttp)
+    implementation(Dependencies.OkHttp.interceptor)
 }
