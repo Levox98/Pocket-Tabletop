@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
+    id("com.google.dagger.hilt.android")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -11,16 +13,16 @@ android {
         minSdk = Config.minSdkVersion
         targetSdk = Config.targetSdkVersion
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = Config.testInstrumentationRunner
+        consumerProguardFiles(Config.consumerProguardFiles)
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Config.defaultProguardFilename),
+                Config.proguardProFilename
             )
         }
     }
@@ -36,4 +38,7 @@ android {
 dependencies {
 
     implementation(Dependencies.Core.coreKtx)
+
+    kapt(Dependencies.Hilt.kapt)
+    implementation(Dependencies.Hilt.hilt)
 }

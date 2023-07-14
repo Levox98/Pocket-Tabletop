@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 @Suppress("UnstableApiUsage")
@@ -51,6 +53,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":api"))
 
     implementation(platform(Dependencies.Compose.bom))
 
@@ -63,6 +66,8 @@ dependencies {
     implementation(Dependencies.Compose.material)
     androidTestImplementation(Dependencies.Compose.uiTestJUnit)
 
+    kapt(Dependencies.Hilt.kapt)
+    implementation(Dependencies.Hilt.hilt)
 
     testImplementation(Dependencies.Test.jUnit)
     androidTestImplementation(Dependencies.Test.jUnitAssertions)

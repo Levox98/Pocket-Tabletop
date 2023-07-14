@@ -1,9 +1,9 @@
 object Config {
 
-    const val namespace = "com.levox.pocket_tabletop"
+    const val namespace = "com.pocket_tabletop"
     const val compileSdkVersion = 33
 
-    const val applicationId = "com.levox.pocket_tabletop"
+    const val applicationId = "com.pocket_tabletop"
     const val minSdkVersion = 26
     const val targetSdkVersion = 33
     const val versionCode = 1
@@ -13,6 +13,7 @@ object Config {
 
     const val defaultProguardFilename = "proguard-android-optimize.txt"
     const val proguardProFilename = "proguard-rules.pro"
+    const val consumerProguardFiles = "consumer-rules.pro"
 
     const val jvmTarget = "1.8"
 
