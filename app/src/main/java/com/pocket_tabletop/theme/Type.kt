@@ -1,4 +1,4 @@
-package com.levox.pocket_tabletop.ui.theme
+package com.pocket_tabletop.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
