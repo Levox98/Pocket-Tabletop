@@ -63,6 +63,7 @@ object Dependencies {
         const val bom = "com.squareup.okhttp3:okhttp-bom:$okHttpBomVersion"
 
         val okHttp = "com.squareup.okhttp3:okhttp"
+        val interceptor = "com.squareup.okhttp3:logging-interceptor"
     }
 
     object Hilt {

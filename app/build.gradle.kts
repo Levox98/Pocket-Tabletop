@@ -53,7 +53,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":api"))
+
+    implementation(project(":core-network"))
 
     implementation(platform(Dependencies.Compose.bom))
 
