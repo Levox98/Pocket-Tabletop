@@ -54,6 +54,7 @@ android {
 
 dependencies {
 
+    implementation(project(":core"))
     implementation(project(":core-network"))
 
     implementation(platform(Dependencies.Compose.bom))
