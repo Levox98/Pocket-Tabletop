@@ -1,6 +1,5 @@
 package com.pocket_tabletop.core_network
 
-import com.pocket_tabletop.core_network.service.SpellsApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,14 +47,4 @@ object ApiModule {
             .baseUrl(ApiConfig.BASE_URL)
             .build()
     }
-
-    @Provides
-    @Singleton
-    fun bindSpellsApiService(
-        retrofit: Retrofit
-    ) = retrofit.create(SpellsApiService::class.java)
-
-    @Provides
-    @Singleton
-    fun bindSpellsApi(spellsApi: SpellsApi) = spellsApi
 }
