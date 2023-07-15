@@ -1,5 +1,6 @@
 package com.pocket_tabletop.core_network
 
+import com.pocket_tabletop.core.AppConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,7 +45,7 @@ object ApiModule {
         return Retrofit.Builder()
             .addConverterFactory(converterFactory)
             .client(okHttpClient)
-            .baseUrl(ApiConfig.BASE_URL)
+            .baseUrl(AppConfig.Api.BASE_URL)
             .build()
     }
 }
