@@ -36,8 +36,10 @@ object Dependencies {
 
     object Lifecycle {
         private const val lifecycle_version = "2.6.1"
+        private const val viewmodel_version = "2.4.0"
 
         val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+        val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
     }
 
     object Test {
@@ -58,9 +60,9 @@ object Dependencies {
     }
 
     object OkHttp {
-        private const val okHttpBomVersion = "4.10.0"
+        private const val okhttp_bom_version = "4.10.0"
 
-        const val bom = "com.squareup.okhttp3:okhttp-bom:$okHttpBomVersion"
+        const val bom = "com.squareup.okhttp3:okhttp-bom:$okhttp_bom_version"
 
         val okHttp = "com.squareup.okhttp3:okhttp"
         val interceptor = "com.squareup.okhttp3:logging-interceptor"
