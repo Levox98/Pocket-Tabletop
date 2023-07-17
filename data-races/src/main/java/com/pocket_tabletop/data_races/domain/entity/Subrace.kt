@@ -1,7 +1,8 @@
-package com.pocket_tabletop.data_races.network.entity
+package com.pocket_tabletop.data_races.domain.entity
 
-data class SubraceApiEntity(
-    val asi: List<AbilityScoreIncreaseApiEntity>,
+
+data class Subrace(
+    val asi: List<AbilityScoreIncrease>,
     val asi_desc: String,
     val desc: String,
     val document__slug: String,
@@ -10,4 +11,4 @@ data class SubraceApiEntity(
     val name: String,
     val slug: String,
     val traits: String
-)
+    )
