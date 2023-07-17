@@ -36,4 +36,6 @@ android {
 dependencies {
 
     implementation(Dependencies.Core.coreKtx)
+
+    implementation(Dependencies.Lifecycle.viewmodel)
 }
