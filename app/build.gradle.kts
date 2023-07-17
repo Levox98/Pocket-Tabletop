@@ -56,12 +56,13 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":core-network"))
+    implementation(project(":feature-handbook"))
 
     implementation(platform(Dependencies.Compose.bom))
 
     implementation(Dependencies.Core.coreKtx)
     implementation(Dependencies.Lifecycle.runtime)
-    implementation(Dependencies.Android.activityCompose)
+    implementation(Dependencies.Lifecycle.activity)
 
     implementation(Dependencies.Compose.ui)
     implementation(Dependencies.Compose.uiToolingPreview)

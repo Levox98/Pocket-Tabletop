@@ -10,6 +10,8 @@ object Dependencies {
         val ui = "androidx.compose.ui:ui"
         val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
         val material = "androidx.compose.material:material"
+        val iconsExtended = "androidx.compose.material:material-icons-extended"
+        val runtime = "androidx.compose.runtime:runtime"
 
         //For some reason this dependency isn't recognized when getting version through BOM
         val uiTestJUnit = "androidx.compose.ui:ui-test-junit4:$compose_junit_version"
@@ -22,12 +24,6 @@ object Dependencies {
         const val kotlin_version = "1.8.10"
     }
 
-    object Android {
-        private const val activity_version = "1.7.0"
-
-        val activityCompose = "androidx.activity:activity-compose:$activity_version"
-    }
-
     object Core {
         private const val core_version = "1.9.0"
 
@@ -37,9 +33,11 @@ object Dependencies {
     object Lifecycle {
         private const val lifecycle_version = "2.6.1"
         private const val viewmodel_version = "2.4.0"
+        private const val activity_version = "1.7.0"
 
         val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-        val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
+        val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodel_version"
+        val activity = "androidx.activity:activity-compose:$activity_version"
     }
 
     object Test {
