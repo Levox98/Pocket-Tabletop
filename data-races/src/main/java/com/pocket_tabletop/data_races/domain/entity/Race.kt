@@ -1,9 +1,11 @@
-package com.pocket_tabletop.data_races.network.entity
+package com.pocket_tabletop.data_races.domain.entity
 
-data class ResultApiEntity(
+import com.pocket_tabletop.data_races.network.entity.SpeedApiEntity
+
+data class Race(
     val age: String,
     val alignment: String,
-    val asi: List<AsiApiEntity>,
+    val asi: List<AbilityScoreIncrease>,
     val asi_desc: String,
     val desc: String,
     val document__license_url: String,
@@ -16,7 +18,7 @@ data class ResultApiEntity(
     val slug: String,
     val speed: SpeedApiEntity,
     val speed_desc: String,
-    val subraces: List<SubraceApiEntity>,
+    val subraces: List<Subrace>,
     val traits: String,
     val vision: String
 )

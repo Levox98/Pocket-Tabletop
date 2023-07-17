@@ -6,5 +6,5 @@ data class RaceListApiEntity(
     override val count: Int,
     val next: Any,
     val previous: Any,
-    val results: List<ResultApiEntity>
+    val results: List<RaceApiEntity>
 ) : ApiResponse
