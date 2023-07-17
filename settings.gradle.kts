@@ -33,3 +33,5 @@ rootProject.name = "Pocket Tabletop"
 include (":app")
 include(":core-network")
 include(":core")
+include(":data-races")
+include(":feature-handbook")
