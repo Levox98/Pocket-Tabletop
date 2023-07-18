@@ -1,4 +1,4 @@
-package com.pocket_tabletop.theme
+package com.pocket_tabletop.core_ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

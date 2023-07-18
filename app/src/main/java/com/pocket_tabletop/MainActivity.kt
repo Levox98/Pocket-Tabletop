@@ -11,9 +11,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.pocket_tabletop.core_ui.theme.PocketTabletopTheme
 import com.pocket_tabletop.feature_handbook.screen.RacesListScreen
 import com.pocket_tabletop.feature_handbook.viewmodel.RacesListScreenViewModel
-import com.pocket_tabletop.theme.PocketTabletopTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
