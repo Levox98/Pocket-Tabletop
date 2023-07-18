@@ -15,7 +15,7 @@
         android:theme="@style/Theme.PocketTabletop"
         tools:targetApi="33">
         <activity
-            android:name=".MainActivity"
+            android:name="com.pocket_tabletop.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.PocketTabletop">
             <intent-filter>
