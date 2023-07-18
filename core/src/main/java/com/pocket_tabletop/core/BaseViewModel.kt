@@ -1,32 +1,38 @@
 package com.pocket_tabletop.core
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
+import kotlin.random.Random
 
-abstract class BaseViewModel(): ViewModel() {
+abstract class BaseAction {
+    override fun equals(other: Any?) = false
+    override fun hashCode() = Random.nextInt()
+}
 
-    var showProgress: Boolean by mutableStateOf(false)
-        private set
+abstract class BaseViewModel<State : Any, Action : BaseAction, Event>(initialState: State): ViewModel() {
+    private val _viewStates = MutableStateFlow(initialState)
+    val viewStates: StateFlow<State> = _viewStates.asStateFlow()
 
-    var errorMessage: String? by mutableStateOf("")
-        private set
+    private val _viewActions = Channel<Action>(Channel.CONFLATED)
+    val viewActions = _viewActions.receiveAsFlow()
 
-    fun showProgress() {
-        showProgress = true
-    }
+    protected var viewState: State
+        get() = _viewStates.value
+        set(value) {
+            _viewStates.value = value
+        }
 
-    fun hideProgress() {
-        showProgress = false
-    }
+    abstract fun obtainEvent(viewEvent: Event)
 
-    fun error(message: String) {
-        hideProgress()
-        errorMessage = message
-    }
-
-    fun clearError() {
-        errorMessage = null
+    protected fun sendAction(action: Action) {
+        viewModelScope.launch {
+            _viewActions.send(action)
+        }
     }
 }

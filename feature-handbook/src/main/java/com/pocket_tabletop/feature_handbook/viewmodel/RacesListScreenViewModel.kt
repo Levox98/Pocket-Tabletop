@@ -1,11 +1,9 @@
 package com.pocket_tabletop.feature_handbook.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
-import com.pocket_tabletop.core.AppError
+import com.pocket_tabletop.core.BaseAction
 import com.pocket_tabletop.core.BaseViewModel
+import com.pocket_tabletop.data_races.domain.entity.Race
 import com.pocket_tabletop.feature_handbook.GetAllRacesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,24 +11,48 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+data class RacesListScreenState(
+    val isLoading: Boolean,
+    val isError: Boolean,
+    val races: List<Race> = emptyList()
+)
+
+sealed class RacesListScreenAction : BaseAction()
+
+sealed class RacesListScreenEvent {
+    object GetRacesListEvent : RacesListScreenEvent()
+}
+
 @HiltViewModel
 class RacesListScreenViewModel @Inject constructor(
     private val getAllRacesUseCase: GetAllRacesUseCase
-) : BaseViewModel() {
-
-    var raceNames by mutableStateOf<List<String>?>(listOf())
-        private set
+) : BaseViewModel<RacesListScreenState, RacesListScreenAction, RacesListScreenEvent>(
+    initialState = RacesListScreenState(isLoading = false, isError = false, races = emptyList())
+) {
 
     init {
+        obtainEvent(RacesListScreenEvent.GetRacesListEvent)
+    }
+
+    override fun obtainEvent(viewEvent: RacesListScreenEvent) {
+        when (viewEvent) {
+            is RacesListScreenEvent.GetRacesListEvent -> getAllRaces()
+        }
+    }
+
+    private fun getAllRaces() {
         viewModelScope.launch(Dispatchers.IO) {
             getAllRacesUseCase().collect { state ->
                 withContext(Dispatchers.Main) {
                     when {
-                        state.isError() -> error(state.error ?: AppError.Unknown())
-                        state.isLoading() -> showProgress()
+                        state.isError() -> {
+                            viewState = viewState.copy(isError = true)
+                        }
+                        state.isLoading() -> {
+                            viewState = viewState.copy(isLoading = true)
+                        }
                         state.isSuccess() -> {
-                            hideProgress()
-                            raceNames = state.data?.map { it.name }
+                            viewState = viewState.copy(races = state.data ?: emptyList())
                         }
                     }
                 }
