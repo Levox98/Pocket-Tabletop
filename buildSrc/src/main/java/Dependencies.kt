@@ -72,4 +72,12 @@ object Dependencies {
         const val hilt = "com.google.dagger:hilt-android:$version"
         const val kapt = "com.google.dagger:hilt-compiler:$version"
     }
+
+    object Room {
+        private const val version = "2.5.2"
+
+        const val api = "androidx.room:room-runtime:$version"
+        const val kapt = "androidx.room:room-compiler:$version"
+        const val room = "androidx.room:room-ktx:$version"
+    }
 }

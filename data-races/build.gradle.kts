@@ -47,4 +47,8 @@ dependencies {
 
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.gsonConverter)
+
+    api(Dependencies.Room.api)
+    kapt(Dependencies.Room.kapt)
+    implementation(Dependencies.Room.room)
 }
