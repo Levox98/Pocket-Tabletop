@@ -1,8 +1,8 @@
-package com.pocket_tabletop.data_races.data.repository
+package com.pocket_tabletop.data_races.data
 
 import com.pocket_tabletop.core.Either
 import com.pocket_tabletop.data_races.domain.entity.Race
-import com.pocket_tabletop.data_races.domain.repository.RacesRepository
+import com.pocket_tabletop.data_races.domain.RacesRepository
 import com.pocket_tabletop.data_races.network.RacesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

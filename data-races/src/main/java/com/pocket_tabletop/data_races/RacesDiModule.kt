@@ -1,7 +1,7 @@
 package com.pocket_tabletop.data_races
 
-import com.pocket_tabletop.data_races.data.repository.RacesRepositoryImpl
-import com.pocket_tabletop.data_races.domain.repository.RacesRepository
+import com.pocket_tabletop.data_races.data.RacesRepositoryImpl
+import com.pocket_tabletop.data_races.domain.RacesRepository
 import com.pocket_tabletop.data_races.network.RacesApiService
 import dagger.Module
 import dagger.Provides

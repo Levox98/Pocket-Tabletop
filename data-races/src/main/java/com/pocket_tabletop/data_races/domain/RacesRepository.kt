@@ -1,4 +1,4 @@
-package com.pocket_tabletop.data_races.domain.repository
+package com.pocket_tabletop.data_races.domain
 
 import com.pocket_tabletop.core.Either
 import com.pocket_tabletop.data_races.domain.entity.Race
