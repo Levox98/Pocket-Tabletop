@@ -1,7 +1,6 @@
 package com.pocket_tabletop.data_races.domain.entity
 
 import com.pocket_tabletop.data_races.network.entity.RaceApiEntity
-import com.pocket_tabletop.data_races.network.entity.SpeedApiEntity
 
 data class Race(
     val age: String,
@@ -17,7 +16,7 @@ data class Race(
     val name: String,
     val size: String,
     val slug: String,
-    val speed: SpeedApiEntity,
+    val speed: Speed,
     val speed_desc: String,
     val subraces: List<Subrace>,
     val traits: String,
@@ -39,7 +38,7 @@ fun RaceApiEntity.toDomain() =
         name = name,
         size = size,
         slug = slug,
-        speed = speed,
+        speed = speed.toDomain(),
         speed_desc = speed_desc,
         subraces = subraces.toDomain(),
         traits = traits,
